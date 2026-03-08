@@ -93,8 +93,11 @@ margin: auto {
 #### Important Notes About Nested Properties:
 
 · The colon : after the parent property is required
+
 · You can have a value on the parent property (like margin: auto)
+
 · The parent property name acts as a prefix with a hyphen
+
 · You can nest multiple levels deep
 
 Another example:
@@ -116,14 +119,17 @@ Another example:
 
 ## Second: What are Placeholders?
 
-Definition:
+\- Definition:
 Placeholders (also called placeholder selectors) are special types of selectors in Sass that start with %. They are not compiled to CSS on their own. Instead, they are meant to be extended using @extend.
 
 #### Main Benefits:
 
 · Create reusable style blocks
+
 · Reduce code duplication
+
 · Keep your CSS DRY (Don't Repeat Yourself)
+
 · No extra CSS generated unless extended
 
 #### How It Works:
@@ -392,31 +398,49 @@ Compiled CSS:
 #### Nested Properties:
 
 Feature Description Example
+
 Syntax Property: { nested: value; } font: { size: 16px; }
+
 Result Property becomes prefix font-size: 16px;
+
 Base Values Can have parent value margin: auto { top: 10px; }
 
 ##### Placeholders:
 
 Feature Description Example
+
 Definition %name { styles } %btn { padding: 10px; }
+
 Usage @extend %name @extend %btn;
+
 Output Only appears when extended No standalone CSS
+
 Benefit No unused CSS Keeps CSS clean
 
 #### Best Practices:
 
 1. Use Placeholders for:
+
    · Repeating style patterns
+   
    · Design system components
+   
    · Base styles that multiple elements share
+   
 2. Don't Use Placeholders for:
+
    · Styles used only once
+   
    · Very simple properties
+   
    · When you need the class to exist in HTML
+   
 3. Naming Conventions:
+   
    · Use descriptive names: %card, %btn-primary
+   
    · Be consistent with your naming
+   
    · Consider using prefixes: %ui-card, %theme-dark
 
 This comprehensive guide covers everything about Property Declarations and Placeholders in Sass!
