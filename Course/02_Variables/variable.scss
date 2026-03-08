@@ -1,0 +1,257 @@
+
+# What are Variables in Sass?
+
+- Variables in Sass are containers that store values (like colors, fonts, sizes) that you want to reuse throughout your code. They help you maintain consistency and make updates easier.
+
+
+Variable Syntax:
+
+Definition:
+
+```scss
+$variable_name: value;
+```
+
+Usage:
+
+```scss
+property: $variable_name;
+```
+
+
+
+## Global vs Local Variables
+
+Global Variables
+
+· Defined at the root level (outside any block)
+· Can be accessed anywhere in the code
+· Visible to all selectors
+
+Local Variables
+
+· Defined inside a selector block (inside { })
+· Can only be accessed within that specific block
+· Not visible outside their block
+
+Simple Example Showing the Difference:
+
+```scss
+// Global variable - defined at root level
+$global_color: red;
+
+.header {
+  color: $global_color; // Works - global variable
+}
+
+.footer {
+  // Local variable - defined inside block
+  $local_color: blue;
+  color: $local_color; // Works - local variable
+  
+  p {
+    color: $local_color; // Works - inside same block
+  }
+}
+
+.copyright {
+  color: $global_color; // Works - global variable
+  // color: $local_color; // ERROR - local variable not accessible here
+}
+```
+
+Another Clear Example:
+
+```scss
+// Global variables
+$primary: blue;
+$padding: 20px;
+
+.box {
+  // Local variable
+  $box_bg: gray;
+  
+  background: $box_bg; // Uses local variable
+  color: $primary;     // Uses global variable
+  padding: $padding;   // Uses global variable
+}
+
+.container {
+  background: $primary; // Uses global variable
+  // background: $box_bg; // ERROR - $box_bg is local to .box
+}
+```
+
+
+
+## The !global Flag
+
+- What is !global?
+The !global flag is used to convert a local variable into a global variable.
+When you write !global after a variable value inside a block,
+that variable becomes available everywhere, even outside that block.
+
+
+- How !global Works:
+
+· Normally, variables defined inside blocks are local
+· Adding !global makes them global
+· They can then be used anywhere after that point
+
+Simple Example of !global:
+
+```scss
+// Initial global variable
+$color: red;
+
+.header {
+  color: $color; // Uses global variable: red
+}
+
+.footer {
+  // This changes the global variable value
+  $color: blue !global;
+  background: $color; // Uses the new value: blue
+}
+
+.copyright {
+  color: $color; // Now uses blue (not red)
+  // The global variable was changed permanently
+}
+```
+
+
+Visual Explanation of What Happens:
+
+```scss
+// Step 1: Global variable created
+$main_color: red; 
+
+.box1 {
+  color: $main_color; // Result: red
+}
+
+.box2 {
+  // Step 2: Change global variable with !global
+  $main_color: green !global;
+  color: $main_color; // Result: green
+}
+
+.box3 {
+  // Step 3: Variable now has new value globally
+  color: $main_color; // Result: green (not red)
+}
+
+// Without !global, this wouldn't work
+```
+
+
+Complete Practical Example
+
+Let's look at your example which demonstrates all these concepts:
+
+File: sass/variables/_colors.scss
+
+```scss
+$main: orange;
+$alt: violet;
+```
+
+File: sass/layout/_global-rules.scss
+
+```scss
+:root {
+  --main-color: red;
+}
+```
+
+File: sass/pages/_contact.scss
+
+```scss
+.contact {
+  padding: 20px;
+  background-color: var(--main-color);
+}
+```
+
+File: main.scss
+
+```scss
+// Import Variables from another file
+@use "./sass/variables/colors";
+
+// Global Variable
+$alt_color: green;
+
+.header {
+  color: $alt_color; // Uses global variable: green
+}
+
+.footer {
+  // Local variable with !global - changes global variable
+  $alt_color: black !global;
+  background-color: $alt_color; // Uses current value: black
+}
+
+.copyright {
+  // Global variable was changed by !global
+  background-color: $alt_color; // Result: black (not green)
+}
+
+.sidebar {
+  // Using variables from imported module
+  background-color: colors.$main; // Result: orange
+  color: colors.$alt; // Result: violet
+}
+
+// Another global variable
+$max_mobile: "max-width: 767px";
+
+@media ($max_mobile) {
+  .sidebar {
+    padding: 20px;
+  }
+}
+```
+
+
+What Happens in This Example:
+
+Step-by-step Execution:
+
+1. Line 4: $alt_color: green; - Creates global variable with value "green"
+2. Line 7-8: .header { color: $alt_color; } - Uses current global value: green
+3. Line 11-14: In .footer, $alt_color: black !global; - Changes the global variable to "black"
+   · The variable becomes global with new value
+   · background-color: $alt_color uses current value: black
+4. Line 17-18: .copyright uses $alt_color - Now it's black (permanently changed)
+5. Line 21-22: .sidebar uses imported variables
+   · colors.$main = orange
+   · colors.$alt = violet
+6. Line 25: $max_mobile: "max-width: 767px"; - Another global variable
+7. Line 27-31: Using variable in media query - @media ($max_mobile)
+
+
+  
+### Key Differences Summary ###
+
+Global Variables Local Variables
+Defined at root level Defined inside blocks
+Accessible everywhere Only accessible in their block
+Can be used in all selectors Cannot be used outside their block
+Created with $var: value at root Created with $var: value inside {}
+
+Without !global With !global
+Local changes stay local Local changes become global
+Outside code unaffected Outside code affected
+Creates new local variable Modifies global variable
+
+Important Rules to Remember
+
+1. Global variables are created at the root level
+2. Local variables are created inside { } blocks
+3. !global makes a local variable global
+4. Imported variables are accessed with namespace.$variable
+5. CSS custom properties (--main-color) work differently from Sass variables
+
+This is the foundation of working with variables in Sass!
