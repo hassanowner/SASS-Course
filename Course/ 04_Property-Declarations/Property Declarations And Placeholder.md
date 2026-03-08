@@ -20,7 +20,7 @@ When you write a property name followed by a colon and then a block { } instead 
 
 ---
 
-### First: Basic Example of Nested Properties
+## First: Basic Example of Nested Properties
 
 Example:
 
@@ -114,7 +114,7 @@ Another example:
 
 ---
 
-### Second: What are Placeholders?
+## Second: What are Placeholders?
 
 Definition:
 Placeholders (also called placeholder selectors) are special types of selectors in Sass that start with %. They are not compiled to CSS on their own. Instead, they are meant to be extended using @extend.
@@ -131,7 +131,7 @@ When you define a placeholder with %name { ... }, Sass stores these styles but d
 
 ---
 
-### Third: Defining a Placeholder
+## Third: Defining a Placeholder
 
 Example:
 
@@ -172,7 +172,7 @@ Compiled to CSS:
 
 ---
 
-### Fourth: Using Placeholders with @extend
+## Fourth: Using Placeholders with @extend
 
 Example:
 
