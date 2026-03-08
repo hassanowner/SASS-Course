@@ -421,26 +421,26 @@ Benefit No unused CSS Keeps CSS clean
 
 1. Use Placeholders for:
 
-   Â· Repeating style patterns
+   · Repeating style patterns
    
-   Â· Design system components
+   · Design system components
    
-   Â· Base styles that multiple elements share
+   · Base styles that multiple elements share
    
 2. Don't Use Placeholders for:
 
-   Â· Styles used only once
+   · Styles used only once
    
-   Â· Very simple properties
+   · Very simple properties
    
-   Â· When you need the class to exist in HTML
+   · When you need the class to exist in HTML
    
 3. Naming Conventions:
    
-   Â· Use descriptive names: %card, %btn-primary
+   · Use descriptive names: %card, %btn-primary
    
-   Â· Be consistent with your naming
+   · Be consistent with your naming
    
-   Â· Consider using prefixes: %ui-card, %theme-dark
+   · Consider using prefixes: %ui-card, %theme-dark
 
 This comprehensive guide covers everything about Property Declarations and Placeholders in Sass!
