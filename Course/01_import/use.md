@@ -81,8 +81,11 @@ body {
 Step 1: Create Partial Files
 
 · Start filenames with underscore _ (example: _global.scss)
+
 · These are called "partials"
+
 · They won't be compiled to CSS on their own
+
 
 Step 2: Write Your Code
 
