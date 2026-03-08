@@ -1,4 +1,5 @@
-What is @use in Sass?
+
+## What is @use in Sass?
 
 The @use rule is a modern way to load and organize Sass files.
 It allows you to split your code into multiple small files (called partials)
