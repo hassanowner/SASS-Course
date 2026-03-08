@@ -1,6 +1,8 @@
 What is @use in Sass?
 
-The @use rule is a modern way to load and organize Sass files. It allows you to split your code into multiple small files (called partials) and import them into a main file.
+The @use rule is a modern way to load and organize Sass files.
+It allows you to split your code into multiple small files (called partials)
+and import them into a main file.
 
 Main Benefits:
 
@@ -67,7 +69,8 @@ body {
 @use "sass/pages/home";
 ```
 
-How to Use @use Step by Step
+
+## How to Use @use Step by Step ##
 
 Step 1: Create Partial Files
 
@@ -101,9 +104,9 @@ Step 4: Compile
 
 Compile only the main file. All imported files will be combined automatically.
 
-What Happens When You Compile?
 
-When you compile main.scss, all imported files are combined into one CSS file:
+** What Happens When You Compile?
+- When you compile main.scss, all imported files are combined into one CSS file:
 
 Compiled CSS (main.css):
 
@@ -130,27 +133,29 @@ body {
 }
 ```
 
-Important Rules to Remember
+
+
+** Important Rules to Remember **
 
 1. File Naming Convention
 
 ```scss
-// ✅ Correct: Start with underscore
+// ✓ Correct: Start with underscore
 _global.scss
 _header.scss
 _footer.scss
 
-// ❌ Wrong: No underscore (will compile separately)
+// X Wrong: No underscore (will compile separately)
 global.scss
 ```
 
 2. Import Syntax
 
 ```scss
-// ✅ Correct: No underscore, no extension
+// ✓ Correct: No underscore, no extension
 @use "sass/layout/global";
 
-// ❌ Wrong: Don't include _ or .scss
+// X Wrong: Don't include _ or .scss
 @use "sass/layout/_global.scss";
 ```
 
@@ -278,14 +283,15 @@ Key Points Summary
 Common Mistakes to Avoid
 
 ```scss
-// ❌ Don't do these:
+// Don't do these:
 @use "_header.scss";     // Wrong: includes underscore and extension
 @use "header.scss";      // Wrong: includes extension
 @use "sass/_header";     // Wrong: includes underscore
 
-// ✅ Do this:
+// Do this:
 @use "header";           // Correct: simple name
 @use "sass/layout/header"; // Correct: with folder path
 ```
 
-This is the basic concept of @use in Sass. It's simply a way to split your code into multiple files and combine them into one!
+This is the basic concept of @use in Sass.
+It's simply a way to split your code into multiple files and combine them into one!
