@@ -5,14 +5,19 @@ The @use rule is a modern way to load and organize Sass files.
 It allows you to split your code into multiple small files (called partials)
 and import them into a main file.
 
-Main Benefits:
+### Main Benefits:
 
 · Code Organization: Split your code into small, manageable files instead of one large file
+
 · Reusability: Use the same code in multiple places
+
 · Easy Maintenance: Find and modify code easily
+
 · Clean Structure: Each file has its own purpose
 
-Simple Example
+
+
+* Simple Example *
 
 Folder Structure:
 
