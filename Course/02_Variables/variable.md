@@ -1,11 +1,11 @@
 
 # What are Variables in Sass?
 
-- Variables in Sass are containers that store values (like colors, fonts, sizes)
-- that you want to reuse throughout your code. They help you maintain consistency and make updates easier.
+\- Variables in Sass are containers that store values (like colors, fonts, sizes)
+ that you want to reuse throughout your code. They help you maintain consistency and make updates easier.
 
 
-Variable Syntax:
+#### Variable Syntax:
 
 Definition:
 
@@ -25,15 +25,15 @@ property: $variable_name;
 
 Global Variables
 
-· Defined at the root level (outside any block)
-· Can be accessed anywhere in the code
-· Visible to all selectors
+* Defined at the root level (outside any block)
+* Can be accessed anywhere in the code
+* Visible to all selectors
 
 Local Variables
 
-· Defined inside a selector block (inside { })
-· Can only be accessed within that specific block
-· Not visible outside their block
+* Defined inside a selector block (inside { })
+* Can only be accessed within that specific block
+* Not visible outside their block
 
 Simple Example Showing the Difference:
 
@@ -87,19 +87,24 @@ $padding: 20px;
 
 ## The !global Flag
 
-- What is !global?
-The !global flag is used to convert a local variable into a global variable.
-When you write !global after a variable value inside a block,
-that variable becomes available everywhere, even outside that block.
+#### What is !global?
+
+· The !global flag is used to convert a local variable into a global variable.
+
+· When you write !global after a variable value inside a block,
+
+· that variable becomes available everywhere, even outside that block.
 
 
-- How !global Works:
+#### How !global Works:
 
 · Normally, variables defined inside blocks are local
+
 · Adding !global makes them global
+
 · They can then be used anywhere after that point
 
-Simple Example of !global:
+#### Simple Example of !global:
 
 ```scss
 // Initial global variable
@@ -147,7 +152,7 @@ $main_color: red;
 ```
 
 
-Complete Practical Example
+#### Complete Practical Example
 
 Let's look at your example which demonstrates all these concepts:
 
@@ -216,9 +221,9 @@ $max_mobile: "max-width: 767px";
 ```
 
 
-What Happens in This Example:
+## What Happens in This Example:
 
-Step-by-step Execution:
+#### Step-by-step Execution:
 
 1. Line 4: $alt_color: green; - Creates global variable with value "green"
 2. Line 7-8: .header { color: $alt_color; } - Uses current global value: green
@@ -234,7 +239,7 @@ Step-by-step Execution:
 
 
   
-### Key Differences Summary ###
+### Key Differences Summary
 
 Global Variables Local Variables
 Defined at root level Defined inside blocks
