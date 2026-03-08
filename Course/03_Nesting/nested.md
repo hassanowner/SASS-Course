@@ -1,13 +1,13 @@
 
 ## What is Nesting in Sass?
 
-Definition of Nesting:
+#### Definition of Nesting:
 
-- Nesting is a feature in Sass that allows you to write CSS in a hierarchical structure
+Nesting is a feature in Sass that allows you to write CSS in a hierarchical structure
 that mirrors your HTML structure. Instead of repeating selector names over and over, 
 you can nest them inside each other.
 
-Main Benefits:
+#### Main Benefits:
 
 · Write more organized and readable code
 · Reduce repetition in writing selectors
@@ -21,7 +21,7 @@ When you write a selector inside another selector, Sass combines them
 
 ---
 
-** First: Basic Nesting
+### First: Basic Nesting
 
 Example:
 
@@ -60,13 +60,15 @@ parent .child .grand-child {
 Explanation:
 
 · The selector .child becomes parent .child in CSS
+
 · The selector .grand-child becomes parent .child .grand-child
+
 · Sass adds a space between each nesting level
 
 ---
 
 
-** Second: Grouping Multiple Selectors
+### Second: Grouping Multiple Selectors
 
 Example:
 
@@ -100,13 +102,15 @@ parent-one .child,
 Explanation:
 
 · Sass applies the same nesting rules to all selectors in the list
+
 · .child becomes a child of both parent-one and .parent-two
+
 · This saves you from writing the same code twice
 
 ---
 
 
-** Third: Using > for Direct Children
+### Third: Using > for Direct Children
 
 Example:
 
@@ -138,13 +142,15 @@ parent > .test {
 Explanation:
 
 · The > symbol means "direct child" only
+
 · Sass puts > before each selector inside the block
+
 · This applies the rule only to direct children, not all nested elements
 
 ---
 
 
-** Fourth: Using > with Multiple Nesting
+### Fourth: Using > with Multiple Nesting
 
 Example:
 
@@ -185,13 +191,15 @@ parent + p {
 Explanation:
 
 · > .child: Applies only to direct children with class child
+
 · .test: Applies to all test elements inside parent (direct or indirect)
+
 · + p: Applies to p element that comes immediately after parent (adjacent sibling)
 
 ---
 
 
-** Fifth: Organizing Code with >
+### Fifth: Organizing Code with >
 
 Example:
 
@@ -233,14 +241,17 @@ parent .not-direct-child {
 Explanation:
 
 · > before the block applies to all elements inside this block
+
 · Both element-one and element-two are direct children
+
 · not-direct-child can be at any level inside parent
+
 · This method organizes code and shows that this group consists of direct children
 
 ---
 
 
-** Sixth: Using & (Parent Selector)
+### Sixth: Using & (Parent Selector)
 
 The & symbol represents the parent selector itself. It's used to reference the outer selector.
 
@@ -384,23 +395,28 @@ box:hover .title {
 ```
 
 
-** Summary of & Uses **
+## Summary of & Uses 
 
 Usage Meaning Resulting CSS
+
 &.class Same element with class box.class
+
 &:hover Same element with state box:hover
+
 & .child Parent then space then child box .child
+
 .parent & Child before then parent .parent box
+
 :not(&) Everything except parent :not(box)
 
-Important Nesting Rules:
+#### Important Nesting Rules:
 
 1. Don't Over-Nest: Avoid nesting more than 3-4 levels deep
 2. Use & Wisely: The & symbol is very useful but only use it when needed
 3. Nesting Increases Specificity: Each nesting level increases selector specificity
 4. Organize Your Code: Use nesting to group related properties together
 
-Example of excessive nesting (avoid this):
+#### Example of excessive nesting (avoid this):
 
 ```scss
 // Bad - hard to read
