@@ -1,7 +1,8 @@
 
 # What are Variables in Sass?
 
-- Variables in Sass are containers that store values (like colors, fonts, sizes) that you want to reuse throughout your code. They help you maintain consistency and make updates easier.
+- Variables in Sass are containers that store values (like colors, fonts, sizes)
+- that you want to reuse throughout your code. They help you maintain consistency and make updates easier.
 
 
 Variable Syntax:
