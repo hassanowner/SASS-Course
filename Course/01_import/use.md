@@ -16,8 +16,7 @@ and import them into a main file.
 · Clean Structure: Each file has its own purpose
 
 
-
-* Simple Example *
+#### Simple Example 
 
 Folder Structure:
 
@@ -81,7 +80,9 @@ body {
 Step 1: Create Partial Files
 
 · Start filenames with underscore _ (example: _global.scss)
+
 · These are called "partials"
+
 · They won't be compiled to CSS on their own
 
 Step 2: Write Your Code
@@ -111,8 +112,8 @@ Step 4: Compile
 Compile only the main file. All imported files will be combined automatically.
 
 
-** What Happens When You Compile?
-- When you compile main.scss, all imported files are combined into one CSS file:
+#### What Happens When You Compile?
+\- When you compile main.scss, all imported files are combined into one CSS file:
 
 Compiled CSS (main.css):
 
@@ -141,7 +142,7 @@ body {
 
 
 
-** Important Rules to Remember **
+#### Important Rules to Remember
 
 1. File Naming Convention
 
@@ -179,7 +180,7 @@ global.scss
 @use "../abstracts/variables";
 ```
 
-Common Folder Structure Examples
+#### Common Folder Structure Examples
 
 Simple Structure:
 
@@ -206,7 +207,7 @@ styles/
     └── _cards.scss
 ```
 
-Complete Simple Example
+#### Complete Simple Example
 
 All Files Together:
 
