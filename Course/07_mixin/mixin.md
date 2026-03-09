@@ -209,9 +209,13 @@ Extend Output:
 When to Use Each:
 
 Use @mixin When: Use @extend When:
+
 Values change between uses Same base styles everywhere
+
 You need dynamic calculations Static, repeating patterns
+
 Each instance needs its own copy You want smaller CSS files
+
 Using parameters/arguments Styles never change
 
 
