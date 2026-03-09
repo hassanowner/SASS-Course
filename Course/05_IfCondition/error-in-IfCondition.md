@@ -132,102 +132,217 @@ $card-type: "featured";  // Try: "basic", "premium", "featured", or "gold"
 
 ---
 
-## Third: Advanced Arrow Example (Your Code Explained)
+## Third: Advanced Button Style Example
 
-Let's break down your arrow example step by step:
+#### Let's break down this button styling example step by step:
 
 Full Code with Explanations:
 
 ```scss
-// Variable controlling the arrow direction
-// Try changing this to: "top", "right", "bottom", "left", or "invalid"
-$direction: "top";
+// Variable controlling the button style
+// Try changing this to: "primary", "success", "danger", "warning", or "invalid"
+$button-type: "primary";
 
-.arrow-div {
-  // Assume %main-box is defined elsewhere with base styles
-  @extend %main-box;
+.button { 
+  // Basic styling for the button
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
   
-  // Basic styling for the div
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-  position: relative;
-  margin: 50px auto;
-  
-  // Pseudo-element for the arrow
-  &::before {
-    content: "";
-    position: absolute;
-    border: 20px solid transparent;  // Creates the triangle shape
+  // Control flow to determine button color scheme
+  @if $button-type == "primary" {
+    // Primary button - blue theme
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
     
-    // Control flow to determine arrow direction
-    @if $direction == "top" {
-      // Arrow pointing down from top
-      top: -40px;                    // Position above the div
-      left: 50%;                      // Center horizontally
-      transform: translateX(-50%);    // Adjust for exact centering
-      border-bottom-color: red;       // Only bottom border is red (creates arrow)
-      
-    } @else if $direction == "right" {
-      // Arrow pointing left from right side
-      right: -40px;                   // Position to the right of div
-      top: 50%;                       // Center vertically
-      transform: translateY(-50%);     // Adjust for exact centering
-      border-left-color: red;          // Only left border is red
-      
-    } @else if $direction == "bottom" {
-      // Arrow pointing up from bottom
-      bottom: -40px;                  // Position below the div
-      left: 50%;                       // Center horizontally
-      transform: translateX(-50%);     // Adjust for exact centering
-      border-top-color: red;           // Only top border is red
-      
-    } @else if $direction == "left" {
-      // Arrow pointing right from left side
-      left: -40px;                    // Position to the left of div
-      top: 50%;                        // Center vertically
-      transform: translateY(-50%);      // Adjust for exact centering
-      border-right-color: red;          // Only right border is red
-      
-    } @else {
-      // If direction is not one of the four valid values
-      @error "This Direction #{$direction} Is Not Valid";
-      // Error message shows the invalid value and stops compilation
+    // Nested hover effect specific to primary
+    &:hover {
+      background-color: #0056b3;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
     }
+    
+  } @else if $button-type == "success" {
+    // Success button - green theme
+    background-color: #28a745;
+    color: white;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+    
+    &:hover {
+      background-color: #1e7e34;
+      box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+    }
+    
+  } @else if $button-type == "danger" {
+    // Danger button - red theme
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+    
+    &:hover {
+      background-color: #bd2130;
+      box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4);
+    }
+    
+  } @else if $button-type == "warning" {
+    // Warning button - yellow theme
+    background-color: #ffc107;
+    color: #212529;
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+    
+    &:hover {
+      background-color: #e0a800;
+      box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+    }
+    
+  } @else {
+    // If button type is not one of the four valid values
+    @error "This Button Type '#{$button-type}' Is Not Valid. Please use: primary, success, danger, or warning.";
+    // Error message shows the invalid value and stops compilation
+  }
+  
+  // Common styles for all button types
+  &:active {
+    transform: translateY(1px);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 }
 ```
 
-#### How the Arrow Works:
+#### How the Button System Works:
 
-1. The Border Technique:
-   ```scss
-   border: 20px solid transparent;  // Creates an invisible square
-   border-bottom-color: red;        // Makes one side red (creates arrow)
-   ```
-2. Different Directions Create Different Arrows:
+The Base Structure:
 
-3. 
-   · Top arrow: Red bottom border → arrow points down
-   
-   · Right arrow: Red left border → arrow points left
-   
-   · Bottom arrow: Red top border → arrow points up
-   
-   · Left arrow: Red right border → arrow points right
+```scss
+border: none;
+border-radius: 4px;
+cursor: pointer;
+// These are common to all buttons
+```
 
-Visual Representation:
+#### Different Button Types Create Different Themes:
+
+· Primary button: Blue theme → Used for main actions
+
+· Success button: Green theme → Used for positive actions
+
+· Danger button: Red theme → Used for destructive actions
+
+· Warning button: Yellow theme → Used for cautionary actions
+
+#### Visual Representation of Button Types:
 
 ```
-Top Arrow:        Right Arrow:       Bottom Arrow:      Left Arrow:
-    □                  □                  □                  □
-    |                  |                  |                  |
-    v                  <                  ^                  >
-(red bottom)      (red left)         (red top)         (red right)
+Primary Button:     Success Button:     Danger Button:      Warning Button:
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│   PRIMARY    │    │   SUCCESS    │    │    DANGER    │    │   WARNING    │
+│   (Blue)     │    │   (Green)    │    │    (Red)     │    │   (Yellow)   │
+└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+     ↓ hover           ↓ hover             ↓ hover             ↓ hover
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│   Darker     │    │   Darker     │    │   Darker     │    │   Darker     │
+│    Blue      │    │   Green      │    │    Red       │    │   Yellow     │
+└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
 ```
+
+#### How Each Button Type Affects the Styles:
+
+1. Primary Button $button-type: "primary":
+
+   · Background: Bright blue (#007bff)
+   
+   · Text: White
+   
+   · Shadow: Blue-tinted
+   
+   · Hover: Darker blue with stronger shadow
+   
+2. Success Button $button-type: "success":
+   · Background: Green (#28a745)
+   
+   · Text: White
+   
+   · Shadow: Green-tinted
+   
+   · Hover: Darker green with stronger shadow
+   
+3. Danger Button $button-type: "danger":
+   · Background: Red (#dc3545)
+   
+   · Text: White
+   
+   · Shadow: Red-tinted
+   
+   · Hover: Darker red with stronger shadow
+   
+4. Warning Button $button-type: "warning":
+   · Background: Yellow (#ffc107)
+   
+   · Text: Dark gray (#212529)
+   
+   · Shadow: Yellow-tinted
+   
+   · Hover: Darker yellow with stronger shadow
+
+#### What Happens When You Change the Variable:
+
+When $button-type: "primary":
+
+```css
+.button {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+.button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+```
+
+When $button-type: "success":
+
+```css
+.button {
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+.button:hover {
+  background-color: #1e7e34;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+}
+```
+
+When $button-type: "invalid":
+
+```
+Error: This Button Type 'invalid' Is Not Valid. Please use: primary, success, danger, or warning.
+Compilation stops immediately with this helpful message.
+```
+
+Key Concepts Demonstrated:
+
+1. @if / @else if chains for multiple options
+2. Nested selectors (&:hover) within each condition
+3. Common styles outside the conditional blocks
+4. @error for invalid values
+5. String interpolation #{$button-type} in error message
+6. Different styling based on a single variable
+
+This example shows how one variable can control an entire theme system!
+
+
+
 
 ---
 
