@@ -70,7 +70,7 @@ CSS Output More code but flexible Less code but grouped
 
 Use Case When values change When exact same styles
 
-Example: Mixin with Parameters (Dynamic)
+#### Example: Mixin with Parameters (Dynamic)
 
 ```scss
 // Mixin with parameters - dynamic and flexible
