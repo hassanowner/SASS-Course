@@ -224,8 +224,11 @@ Compiled CSS:
 #### Key Points:
 
 · Great for explaining specific lines
+
 · Useful for temporarily disabling properties
+
 · Keeps documentation close to the code
+
 · Removed from final CSS
 
 ---
