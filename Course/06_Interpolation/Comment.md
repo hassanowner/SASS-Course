@@ -17,7 +17,7 @@ When Sass compiles your code, it processes comments differently based on how the
 
 ---
 
-### First: Single-Line Comments (//)
+## First: Single-Line Comments (//)
 
 Syntax:
 
