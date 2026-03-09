@@ -164,8 +164,114 @@ $element-id: unique-id();
 ```
 
 ---
+## Third: Simple Interpolation Example - User Profile Badge System
 
-### Third: Complete Practical Example - E-commerce Product Card System
+```scss
+// =========================================
+// USER PROFILE BADGE SYSTEM
+// =========================================
+
+// Variables for dynamic content
+$username: "ahmed123";
+$user-level: "gold"; // gold, silver, bronze
+$badge-position: "right";
+
+// Base placeholder for badges
+%badge-base {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+// Main profile card
+.profile-#{$username} {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px;
+  
+  // Dynamic badge class
+  .badge-#{$user-level} {
+    @extend %badge-base;
+    
+    @if $user-level == "gold" {
+      background-color: gold;
+      color: #333;
+    } @else if $user-level == "silver" {
+      background-color: silver;
+      color: #333;
+    } @else {
+      background-color: #cd7f32; // bronze
+      color: white;
+    }
+    
+    &::before {
+      content: "#{$user-level} member";
+    }
+  }
+  
+  // Dynamic positioning
+  .avatar {
+    width: 100px;
+    height: 100px;
+    background-image: url("avatars/#{$username}.jpg");
+    background-size: cover;
+    margin-#{$badge-position}: 10px;
+  }
+  
+  // Unique tracking ID
+  $tracking: unique-id();
+  &::after {
+    content: "ID: #{$tracking}";
+    font-size: 10px;
+    color: #999;
+  }
+}
+```
+
+Compiled CSS Output
+
+```css
+.profile-ahmed123 {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px;
+}
+
+.profile-ahmed123 .badge-gold,
+.profile-ahmed123 .badge-silver,
+.profile-ahmed123 .badge-bronze {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.profile-ahmed123 .badge-gold {
+  background-color: gold;
+  color: #333;
+}
+
+.profile-ahmed123 .badge-gold::before {
+  content: "gold member";
+}
+
+.profile-ahmed123 .avatar {
+  width: 100px;
+  height: 100px;
+  background-image: url("avatars/ahmed123.jpg");
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.profile-ahmed123::after {
+  content: "ID: u12345678";
+  font-size: 10px;
+  color: #999;
+}
+```
+---
+## Fourth: Complete Practical Example - E-commerce Product Card System
 
 Here's a complete, realistic example of an e-commerce product card system using interpolation:
 
