@@ -244,13 +244,13 @@ cursor: pointer;
 ```
 Primary Button:     Success Button:     Danger Button:      Warning Button:
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│   PRIMARY    │    │   SUCCESS    │    │    DANGER    │    │   WARNING    │
-│   (Blue)     │    │   (Green)    │    │    (Red)     │    │   (Yellow)   │
+│   PRIMARY       │    │   SUCCESS       │    │    DANGER.      │   │     WARNING     │
+│   (Blue)        │    │   (Green)       │    │    (Red)        │   │     (Yellow)    │
 └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
-     ↓ hover           ↓ hover             ↓ hover             ↓ hover
+      ↓ hover                ↓ hover                 ↓ hover               ↓ hover
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│   Darker     │    │   Darker     │    │   Darker     │    │   Darker     │
-│    Blue      │    │   Green      │    │    Red       │    │   Yellow     │
+│   Darker        │    │   Darker        │    │   Darker        │    │    Darker      │
+│    Blue         │    │   Green         │    │    Red          │    │    Yellow      │
 └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
 ```
 
@@ -267,6 +267,7 @@ Primary Button:     Success Button:     Danger Button:      Warning Button:
    · Hover: Darker blue with stronger shadow
    
 2. Success Button $button-type: "success":
+   
    · Background: Green (#28a745)
    
    · Text: White
@@ -276,6 +277,7 @@ Primary Button:     Success Button:     Danger Button:      Warning Button:
    · Hover: Darker green with stronger shadow
    
 3. Danger Button $button-type: "danger":
+
    · Background: Red (#dc3545)
    
    · Text: White
@@ -285,6 +287,7 @@ Primary Button:     Success Button:     Danger Button:      Warning Button:
    · Hover: Darker red with stronger shadow
    
 4. Warning Button $button-type: "warning":
+   
    · Background: Yellow (#ffc107)
    
    · Text: Dark gray (#212529)
