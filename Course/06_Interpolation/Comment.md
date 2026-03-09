@@ -393,7 +393,7 @@ Compiled CSS:
 }
 ```
 
-#### Key Points:
+## Key Points:
 
 · Used for documentation generation
 
