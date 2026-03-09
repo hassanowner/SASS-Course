@@ -70,7 +70,153 @@ CSS Output More code but flexible Less code but grouped
 
 Use Case When values change When exact same styles
 
-#### Example: Mixin with Parameters (Dynamic)
+Simple Example: Mixin vs Extend Comparison
+
+#### The Scenario:
+
+We want to create warning messages with different background colors.
+
+Using @mixin (Dynamic - When Values Change)
+
+```scss
+// Mixin with parameter - can create different variations
+@mixin warning-message($bg-color) {
+  background-color: $bg-color;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+// Using the mixin with different values
+.warning-low {
+  @include warning-message(#f39c12);  // Orange
+}
+
+.warning-medium {
+  @include warning-message(#e67e22);  // Dark Orange
+}
+
+.warning-high {
+  @include warning-message(#e74c3c);  // Red
+}
+```
+
+Compiled CSS (Mixin):
+
+```css
+.warning-low {
+  background-color: #f39c12;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.warning-medium {
+  background-color: #e67e22;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.warning-high {
+  background-color: #e74c3c;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+/* Note: Each selector has its own copy of the styles */
+```
+
+---
+
+Using @extend (Static - When Values Are Same)
+
+```scss
+// Placeholder with base styles
+%warning-base {
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+// Using extend - all share the same base styles
+.warning-low {
+  @extend %warning-base;
+  background-color: #f39c12;
+}
+
+.warning-medium {
+  @extend %warning-base;
+  background-color: #e67e22;
+}
+
+.warning-high {
+  @extend %warning-base;
+  background-color: #e74c3c;
+}
+```
+
+Compiled CSS (Extend):
+
+```css
+.warning-low, .warning-medium, .warning-high {
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.warning-low {
+  background-color: #f39c12;
+}
+
+.warning-medium {
+  background-color: #e67e22;
+}
+
+.warning-high {
+  background-color: #e74c3c;
+}
+/* Note: Base styles are grouped together - less code! */
+```
+
+---
+
+Key Difference Visualized:
+
+Mixin Output:
+
+```
+.warning-low { [copy 1 of all styles] }
+.warning-medium { [copy 2 of all styles] }
+.warning-high { [copy 3 of all styles] }
+```
+
+Extend Output:
+
+```
+.warning-low, .warning-medium, .warning-high { [shared styles] }
+.warning-low { [unique styles] }
+.warning-medium { [unique styles] }
+.warning-high { [unique styles] }
+```
+
+When to Use Each:
+
+Use @mixin When: Use @extend When:
+Values change between uses Same base styles everywhere
+You need dynamic calculations Static, repeating patterns
+Each instance needs its own copy You want smaller CSS files
+Using parameters/arguments Styles never change
+
+
+
+#### Advanced Example: Mixin with Parameters (Dynamic)
 
 ```scss
 // Mixin with parameters - dynamic and flexible
