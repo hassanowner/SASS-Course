@@ -1,4 +1,3 @@
-شرح For Loop in SCSS
 
 ## What is For Loop in SCSS?
 
@@ -54,11 +53,14 @@ Result:
 }
 ```
 
-Explanation: This creates margin utility classes:
+#### Explanation: This creates margin utility classes:
 
 · .m-0 to .m-4 for all margins
+
 · .mt-0 to .mt-4 for top margin
+
 · .mb-0 to .mb-4 for bottom margin
+
   Each step increases by 5px.
 
 ---
@@ -86,14 +88,20 @@ $base-size: 12px;
 }
 ```
 
-Explanation: This creates 6 text size classes:
+#### Explanation: This creates 6 text size classes:
 
 · Size 1: 14px, dark color, normal weight
+
 · Size 2: 16px, dark color, normal weight
+
 · Size 3: 18px, dark color, normal weight
+
 · Size 4: 20px, light color, bold
+
 · Size 5: 22px, light color, bold
+
 · Size 6: 24px, light color, bold
+
   Line height increases with font size.
 
 ---
@@ -160,8 +168,11 @@ $steps: 1;
 
 1. 10% to 100% progress bars - each with a different color
 2. Color changes based on progress level:
+
    · 10-30%: Red (low progress)
+   
    · 40-60%: Orange (medium progress)
+   
    · 70-100%: Green (high progress)
 3. Text inside shows percentage complete
 4. Second loop shows to - creates steps 1-4 only (excludes 5)
