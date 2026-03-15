@@ -15,7 +15,7 @@ making it perfect for generating repetitive styles from collections of values.
 
 · Continues until all items are processed
 
-Simple Example:
+#### Simple Example:
 
 ```scss
 $colors: red, blue, green;
@@ -35,7 +35,8 @@ Result:
 .text-green { color: green; }
 ```
 
-#### Explanation: The loop takes each color from the list, creates a class name using that color, and sets the text color to that color.
+#### Explanation:
+The loop takes each color from the list, creates a class name using that color, and sets the text color to that color.
 
 ---
 
@@ -66,7 +67,8 @@ $sizes: small, medium, large;
 }
 ```
 
-#### Explanation: This creates three button size classes. For each size in the list, it sets different padding and font size values using conditions.
+#### Explanation: 
+This creates three button size classes. For each size in the list, it sets different padding and font size values using conditions.
 
 ### Example 2: Medium - Card Themes
 
@@ -159,7 +161,8 @@ $colors: (
 }
 ```
 
-#### Explanation: The loop takes each pair from the map. $name gets "error", "warning", "success" and $code gets their color values. Then creates alert classes with those colors.
+#### Explanation: 
+The loop takes each pair from the map. $name gets "error", "warning", "success" and $code gets their color values. Then creates alert classes with those colors.
 
 ---
 
@@ -325,7 +328,8 @@ $buttons:
 }
 ```
 
-#### Explanation: The loop takes each set of three values. $type gets the name, $size gets the font size, $color gets the color. Then creates buttons with these properties.
+#### Explanation: 
+The loop takes each set of three values. $type gets the name, $size gets the font size, $color gets the color. Then creates buttons with these properties.
 
 ---
 
@@ -470,21 +474,21 @@ $features:
 #### Explanation: This advanced example creates three product cards:
 
 1. First loop ($products): Contains main product data:
-   · Product name, price, title size, accent color, description
-   · Creates card structure with price badge
-   · Sets card styling based on product
+   - Product name, price, title size, accent color, description
+   - Creates card structure with price badge
+   - Sets card styling based on product
 2. Second loop ($features): Contains features for each product:
-   · Each product has 3-5 features
-   · Nested loop matches features to current product
-   · Special styling for premium features
+   - Each product has 3-5 features
+   - Nested loop matches features to current product
+   - Special styling for premium features
 3. Dynamic features display:
-   · Different number of features per product
-   · Special highlight for the last feature in Pro
-   · Enterprise card gets extra styling (shadow, scale)
+   - Different number of features per product
+   - Special highlight for the last feature in Pro
+   - Enterprise card gets extra styling (shadow, scale)
 4. Smart conditions:
-   · Enterprise card is highlighted as premium
-   · Features list adapts to available data
-   · Colors and styling consistent with product theme
+   - Enterprise card is highlighted as premium
+   - Features list adapts to available data
+   - Colors and styling consistent with product theme
 
 ---
 
