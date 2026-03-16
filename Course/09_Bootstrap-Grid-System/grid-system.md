@@ -102,7 +102,12 @@ $grid-columns: 12;
 .clearfix::after { content: ""; display: table; clear: both; }
 ```
 
-#### Explanation: This loop creates 12 column width classes from 1 to 12. Each column width is calculated as a percentage of the total (column number ÷ 12 × 100%) . The clearfix class prevents container collapse with floated elements.
+#### Explanation: 
+This loop creates 12 column width classes from 1 to 12.
+
+Each column width is calculated as a percentage of the total (column number ÷ 12 × 100%) .
+
+The clearfix class prevents container collapse with floated elements.
 
 ---
 
