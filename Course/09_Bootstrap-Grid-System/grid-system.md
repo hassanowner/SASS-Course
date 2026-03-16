@@ -61,7 +61,7 @@ $total-columns: 12;
 
 ---
 
-### Main Example: Basic Column System
+## Main Example: Basic Column System
 
 ```scss
 // Create simple column width classes
