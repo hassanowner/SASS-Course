@@ -113,7 +113,7 @@ The clearfix class prevents container collapse with floated elements.
 
 ## Three Practical Grid System Examples
 
-#### Example 1: Simple - Basic Responsive Grid
+### Example 1: Simple - Basic Responsive Grid
 
 ```scss
 // Simple responsive grid with breakpoints
@@ -164,7 +164,7 @@ $breakpoint-large: 992px;
 }
 ```
 
-Result in CSS (partial):
+#### Result in CSS (partial):
 
 ```css
 [class*="col-"] { width: 100%; padding: 0 15px; box-sizing: border-box; }
@@ -199,7 +199,7 @@ Result in CSS (partial):
 .row::after { content: ""; display: table; clear: both; }
 ```
 
-HTML Usage Example:
+#### HTML Usage Example:
 
 ```html
 <div class="row">
@@ -279,7 +279,7 @@ $gutter-width: 30px;
 }
 ```
 
-Result in CSS (partial):
+#### Result in CSS (partial):
 
 ```css
 .container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
@@ -303,7 +303,7 @@ Result in CSS (partial):
 .col { flex: 1 0 0%; max-width: 100%; }
 ```
 
-HTML Usage Example:
+#### HTML Usage Example:
 
 ```html
 <div class="container">
@@ -331,13 +331,16 @@ HTML Usage Example:
 #### Explanation: This flexbox grid includes :
 
 · Flexbox layout: More powerful than floats
+
 · Offset classes: Push columns to the right (margin-left)
+
 · Auto columns: Width based on content
+
 · Equal width columns: All columns share available space equally
 
 ---
 
-## Example 3: Advanced - Complete Bootstrap-like Grid System
+### Example 3: Advanced - Complete Bootstrap-like Grid System
 
 ```scss
 // Complete grid system with mixins, breakpoints, and utilities
@@ -508,7 +511,7 @@ $container-max-widths: (
 .justify-content-between { justify-content: space-between; }
 ```
 
-Result in CSS (abbreviated sample):
+#### Result in CSS (abbreviated sample):
 
 ```css
 .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
@@ -583,7 +586,7 @@ Result in CSS (abbreviated sample):
 .justify-content-between { justify-content: space-between; }
 ```
 
-HTML Usage Example:
+#### HTML Usage Example:
 
 ```html
 <!-- Responsive grid with different behaviors at breakpoints -->
