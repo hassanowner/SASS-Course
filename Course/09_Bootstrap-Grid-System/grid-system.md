@@ -51,7 +51,7 @@ $total-columns: 12;
 }
 ```
 
-### Explanation: This creates:
+#### Explanation: This creates:
 
 · A container that centers content and has max width
 
