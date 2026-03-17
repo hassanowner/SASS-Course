@@ -237,7 +237,122 @@ $buttons: (
 
 ---
 
-### Example 2: Advanced Function with Arbitrary Arguments (...) and @each
+Simple Example of ... (Arbitrary Arguments) with @each
+
+```scss
+// Simple function that adds all numbers passed to it
+@function add-numbers($numbers...) {
+  $total: 0;
+  
+  @each $number in $numbers {
+    $total: $total + $number;
+  }
+  
+  @return $total;
+}
+
+// Using the function with different numbers of arguments
+.box-1 {
+  width: add-numbers(10px, 20px, 30px);        // 3 arguments
+}
+
+.box-2 {
+  width: add-numbers(5px, 15px, 25px, 35px);   // 4 arguments
+}
+
+.box-3 {
+  width: add-numbers(100px, 200px);             // 2 arguments
+}
+```
+
+Result in CSS:
+
+```css
+.box-1 {
+  width: 60px;  /* 10 + 20 + 30 = 60 */
+}
+
+.box-2 {
+  width: 80px;  /* 5 + 15 + 25 + 35 = 80 */
+}
+
+.box-3 {
+  width: 300px; /* 100 + 200 = 300 */
+}
+```
+
+---
+
+How It Works Step by Step
+
+Step Code Explanation
+1. Function Definition @function add-numbers($numbers...) The ... means this function can accept any number of arguments
+2. Initialize Variable $total: 0; Start with zero before adding
+3. @each Loop @each $number in $numbers Loop through each argument passed to the function
+4. Add Each Value $total: $total + $number; Add current number to total
+5. Return Result @return $total; Return the final sum
+
+---
+
+Another Simple Example: Join Words
+
+```scss
+// Simple function that joins words with a space
+@function join-words($words...) {
+  $sentence: "";
+  
+  @each $word in $words {
+    $sentence: $sentence + " " + $word;
+  }
+  
+  @return $sentence;
+}
+
+// Using the function
+.header::before {
+  content: join-words("Hello", "World", "from", "SCSS");
+}
+
+.footer::before {
+  content: join-words("Thank", "You", "For", "Watching");
+}
+```
+
+Result in CSS:
+
+```css
+.header::before {
+  content: " Hello World from SCSS";
+}
+
+.footer::before {
+  content: " Thank You For Watching";
+}
+```
+
+---
+
+Visual Summary
+
+```
+Function Call: add-numbers(10px, 20px, 30px)
+                          ↓
+                    $numbers = (10px, 20px, 30px)
+                          ↓
+                    @each $number in $numbers
+                          ↓
+    First loop:  $total = 0 + 10px = 10px
+    Second loop: $total = 10px + 20px = 30px
+    Third loop:  $total = 30px + 30px = 60px
+                          ↓
+                    @return 60px
+```
+
+The ... collects all arguments into a single list, and @each lets you work with each value one by one!
+
+
+---
+### Example 3: Advanced Function with Arbitrary Arguments (...) and @each
 
 The ... syntax allows functions to accept any number of arguments as a list .
 
