@@ -1,4 +1,4 @@
-[hi](images/logo-theme)
+![Logo-Theme](images/logo-theme.jpg)
 
 # Complete Sass/SCSS Learning Course 
 
