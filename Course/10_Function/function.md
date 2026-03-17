@@ -184,7 +184,7 @@ This keeps code organized and reusable across multiple projects .
 
 ## Functions with Multiple Parameters
 
-### Example 1:Button Style Generator with Fixed Parameters
+### Example :Button Style Generator with Fixed Parameters
 
 ```scss
 @function button-style($bg-color, $text-color, $border-radius: 4px) {
@@ -417,7 +417,7 @@ The ... collects all arguments into a single list, and @each lets you work with 
 
 
 ---
-### Example 3: Advanced Function with Arbitrary Arguments (...) and @each
+### Example : Advanced Function with Arbitrary Arguments (...) and @each
 
 The ... syntax allows functions to accept any number of arguments as a list .
 
