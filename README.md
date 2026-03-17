@@ -1,3 +1,5 @@
+[hi](images/logo-theme)
+
 # Complete Sass/SCSS Learning Course 
 
 ## 🤖 Course Overview
