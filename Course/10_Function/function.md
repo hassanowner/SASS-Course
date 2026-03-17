@@ -35,7 +35,7 @@ making your stylesheets more maintainable and DRY (Don't Repeat Yourself) .
 }
 ```
 
-### Explanation: 
+#### Explanation: 
 The function takes a value and returns double of it. When called with 150px, it returns 300px.
 
 ---
@@ -49,7 +49,7 @@ The function takes a value and returns double of it. When called with 150px, it 
 }
 ```
 
-### Key Points:
+#### Key Points:
 
 · Functions must end with @return 
 
@@ -61,7 +61,7 @@ The function takes a value and returns double of it. When called with 150px, it 
 
 ---
 
-### Practical Example: Responsive Aspect Ratio Calculator
+## Practical Example: Responsive Aspect Ratio Calculator
 
 This example creates a function that calculates height based on width and aspect ratio,
 then uses a loop to generate multiple classes.
