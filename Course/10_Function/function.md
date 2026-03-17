@@ -284,9 +284,13 @@ result: demo(10px, 20px, 30px, 40px);
 #### Why Use ... (Arbitrary Arguments)?
 
 Benefit Explanation Example
+
 Flexibility Functions can handle varying numbers of inputs sum(1,2) or sum(1,2,3,4,5)
+
 Future-Proof Add more arguments without changing function definition Same function works for any count
+
 Clean Code No need to create multiple overloaded functions One function handles all cases
+
 Dynamic Processing Process unknown amounts of data Loop through all colors for a gradient
 
 Common Use Cases
@@ -326,7 +330,7 @@ The ... syntax makes your functions more powerful and adaptable to different sit
 }
 ```
 
-Result in CSS:
+#### Result in CSS:
 
 ```css
 .box-1 {
@@ -344,7 +348,7 @@ Result in CSS:
 
 ---
 
-How It Works Step by Step
+#### How It Works Step by Step
 
 Step Code Explanation
 1. Function Definition @function add-numbers($numbers...) The ... means this function can accept any number of arguments
@@ -355,7 +359,7 @@ Step Code Explanation
 
 ---
 
-Another Simple Example: Join Words
+### Another Simple Example: Join Words
 
 ```scss
 // Simple function that joins words with a space
@@ -379,7 +383,7 @@ Another Simple Example: Join Words
 }
 ```
 
-Result in CSS:
+#### Result in CSS:
 
 ```css
 .header::before {
@@ -393,7 +397,7 @@ Result in CSS:
 
 ---
 
-Visual Summary
+### Visual Summary
 
 ```
 Function Call: add-numbers(10px, 20px, 30px)
